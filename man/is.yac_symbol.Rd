@@ -2,7 +2,7 @@
 % Please edit documentation in R/is.yac_symbol.R
 \name{is.yac_symbol}
 \alias{is.yac_symbol}
-\title{Test for object of class \code{yac_symbol}}
+\title{Test for Object of Class \code{yac_symbol}}
 \usage{
 is.yac_symbol(x)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/is.yac_symbol.R
 \name{as.yac_symbol}
 \alias{as.yac_symbol}
-\title{Coerce to an object of class \code{yac_symbol}}
+\title{Coerce to an Object of Class \code{yac_symbol}}
 \usage{
 as.yac_symbol(x)
 }
@@ -12,7 +12,8 @@ as.yac_symbol(x)
 \description{
 The function checks if \code{x} is of class \code{yac_symbol}.
 If the test is \code{TRUE}, it returns \code{x}.
-otherwise, it applies \code{Ryacas::ysym} to \code{x}.
+otherwise, it applies \code{Ryacas::ysym} to \code{x}
+and returns the result.
 }
 \examples{
 x <- 1:5

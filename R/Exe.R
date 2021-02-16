@@ -10,7 +10,8 @@
 #' @param x Character string. `Yacas` expression.
 #' @param R Logical.
 #'   If `R = TRUE`, returns symbolic result as an `R` expression.
-#'   If `R = FALSE`, returns symbolic result as `"ysym"`, `"str"`,  or `"tex"`.
+#'   If `R = FALSE`, returns symbolic result as `"ysym"`, `"str"`,  or `"tex"`
+#'   depending of `format`.
 #' @param format Character string.
 #'   Only used when `R = FALSE`.
 #'   If `format = "ysym"`,

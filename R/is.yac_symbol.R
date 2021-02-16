@@ -1,4 +1,4 @@
-#' Test for object of class `yac_symbol`
+#' Test for Object of Class `yac_symbol`
 #'
 #' Tests if an `R` object `x` is of class `yac_symbol`.
 #'
@@ -16,11 +16,12 @@ is.yac_symbol <- function(x) {
   )
 }
 
-#' Coerce to an object of class `yac_symbol`
+#' Coerce to an Object of Class `yac_symbol`
 #'
 #' The function checks if `x` is of class `yac_symbol`.
 #' If the test is `TRUE`, it returns `x`.
-#' otherwise, it applies `Ryacas::ysym` to `x`.
+#' otherwise, it applies `Ryacas::ysym` to `x`
+#' and returns the result.
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'

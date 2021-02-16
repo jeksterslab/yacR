@@ -11,7 +11,8 @@ Exe(x, R = FALSE, format = "ysym", simplify = FALSE)
 
 \item{R}{Logical.
 If \code{R = TRUE}, returns symbolic result as an \code{R} expression.
-If \code{R = FALSE}, returns symbolic result as \code{"ysym"}, \code{"str"},  or \code{"tex"}.}
+If \code{R = FALSE}, returns symbolic result as \code{"ysym"}, \code{"str"},  or \code{"tex"}
+depending of \code{format}.}
 
 \item{format}{Character string.
 Only used when \code{R = FALSE}.
