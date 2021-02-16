@@ -7,10 +7,10 @@
 #'
 #' @inherit yacR references
 #'
-#' @param expr Character string. `Yacas` expresion.
-#' @param expression Logical.
-#'   If `expression = TRUE`, returns symbolic result as an `R` expression.
-#'   If `expression = FALSE`, returns symbolic result as `"ysym"`, `"str"`,  or `"tex"`.
+#' @param x Character string. `Yacas` expression.
+#' @param R Logical.
+#'   If `R = TRUE`, returns symbolic result as an `R` expression.
+#'   If `R = FALSE`, returns symbolic result as `"ysym"`, `"str"`,  or `"tex"`.
 #' @param format Character string.
 #'   Only used when `expression = FALSE`.
 #'   If `format = "ysym"`,
@@ -24,17 +24,17 @@
 #' A <- Ryacas::ysym(
 #'   matrix(c("a", "c", "b", "d"), ncol = 2)
 #' )
-#' expr <- paste0("Determinant(", A, ")")
-#' Exe(expr, expression = FALSE, format = "ysym")
-#' Exe(expr, expression = FALSE, format = "str")
-#' Exe(expr, expression = FALSE, format = "tex")
-#' Exe(expr, expression = TRUE)
+#' x <- paste0("Determinant(", A, ")")
+#' Exe(x, R = FALSE, format = "ysym")
+#' Exe(x, R = FALSE, format = "str")
+#' Exe(x, R = FALSE, format = "tex")
+#' Exe(x, R = TRUE)
 #'
 #' a <- 1
 #' b <- 2
 #' c <- 3
 #' d <- 4
-#' eval(Exe(expr, expression = TRUE))
+#' eval(Exe(x, R = TRUE))
 #'
 #' # `det.yac_symbol` from `Ryacas`
 #' Ryacas::det(A)
@@ -44,34 +44,34 @@
 #' A <- matrix(c(a, c, b, d), ncol = 2)
 #' det(A)
 #' @export
-Exe <- function(expr,
-                expression = FALSE,
+Exe <- function(x,
+                R = FALSE,
                 format = "ysym",
                 simplify = FALSE) {
   if (simplify) {
-    expr <- paste0(
+    x <- paste0(
       "Simplify(",
-      expr,
+      x,
       ")"
     )
   }
-  if (expression) {
+  if (R) {
     return(
-      Ryacas::yac_expr(expr)
+      Ryacas::yac_expr(x)
     )
   }
   if (format == "str") {
-    return(Ryacas::yac_str(expr))
+    return(Ryacas::yac_str(x))
   }
   if (format == "ysym") {
     return(
-      Ryacas::ysym(Ryacas::yac_str(expr))
+      Ryacas::ysym(Ryacas::yac_str(x))
     )
   }
   if (format == "tex") {
     return(
       Ryacas::tex(
-        Ryacas::ysym(Ryacas::yac_str(expr))
+        Ryacas::ysym(Ryacas::yac_str(x))
       )
     )
   }
