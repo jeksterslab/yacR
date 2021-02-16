@@ -57,6 +57,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../../articles/Exe.html">Exe</a>
+    </li>
+    <li>
       <a href="../../articles/tests/test_Exe.html">Test: Exe</a>
     </li>
     <li>
@@ -94,7 +97,7 @@
       <h1 data-toc-skip>Test: Exe</h1>
                         <h4 class="author">Ivan Jacob Agaloos Pesigan</h4>
             
-            <h4 class="date">2021-02-16</h4>
+            <h4 class="date">2021-02-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/jeksterslab/yacR/blob/master/vignettes/tests/test_Exe.Rmd"><code>vignettes/tests/test_Exe.Rmd</code></a></small>
       <div class="hidden name"><code>test_Exe.Rmd</code></div>
@@ -112,28 +115,48 @@
 <span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">2</span>
 <span class="va">c</span> <span class="op">&lt;-</span> <span class="fl">3</span>
 <span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">4</span>
-<span class="co">#</span>
 <span class="va">B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">c</span>, <span class="va">b</span>, <span class="va">d</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/test_that.html">test_that</a></span><span class="op">(</span><span class="st">"a*d-b*c"</span>, <span class="op">{</span>
   <span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_equal</a></span><span class="op">(</span>
     <span class="st">"a*d-b*c"</span>,
-    <span class="fu">yacR</span><span class="fu">::</span><span class="fu"><a href="../../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr</span>, simplify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">$</span><span class="va">yacas_cmd</span>,
-    <span class="fu">yacR</span><span class="fu">::</span><span class="fu"><a href="../../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr</span>, str <span class="op">=</span> <span class="cn">TRUE</span>, ysym <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+    <span class="fu">yacR</span><span class="fu">::</span><span class="fu"><a href="../../reference/Exe.html">Exe</a></span><span class="op">(</span>
+      <span class="va">expr</span>,
+      expression <span class="op">=</span> <span class="cn">FALSE</span>,
+      format <span class="op">=</span> <span class="st">"ysym"</span>,
+      simplify <span class="op">=</span> <span class="cn">TRUE</span>
+    <span class="op">)</span><span class="op">$</span><span class="va">yacas_cmd</span>,
+    <span class="fu">yacR</span><span class="fu">::</span><span class="fu"><a href="../../reference/Exe.html">Exe</a></span><span class="op">(</span>
+      <span class="va">expr</span>,
+      expression <span class="op">=</span> <span class="cn">FALSE</span>,
+      format <span class="op">=</span> <span class="st">"str"</span>,
+      simplify <span class="op">=</span> <span class="cn">TRUE</span>
+    <span class="op">)</span>
   <span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
-<span class="co">#&gt; Test passed 🌈</span>
+<span class="co">#&gt; Test passed 🥇</span>
 <span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/test_that.html">test_that</a></span><span class="op">(</span><span class="st">"a d - b c"</span>, <span class="op">{</span>
   <span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_equal</a></span><span class="op">(</span>
     <span class="st">"a d - b c"</span>,
-    <span class="fu">yacR</span><span class="fu">::</span><span class="fu"><a href="../../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr</span>, str <span class="op">=</span> <span class="cn">TRUE</span>, tex <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+    <span class="fu">yacR</span><span class="fu">::</span><span class="fu"><a href="../../reference/Exe.html">Exe</a></span><span class="op">(</span>
+      <span class="va">expr</span>,
+      expression <span class="op">=</span> <span class="cn">FALSE</span>,
+      format <span class="op">=</span> <span class="st">"tex"</span>,
+      simplify <span class="op">=</span> <span class="cn">TRUE</span>
+    <span class="op">)</span>
   <span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt; Test passed 🥳</span>
 <span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/test_that.html">test_that</a></span><span class="op">(</span><span class="st">"det(B)"</span>, <span class="op">{</span>
   <span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_equal</a></span><span class="op">(</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/det.html">det</a></span><span class="op">(</span><span class="va">B</span><span class="op">)</span>,
-    <span class="fu"><a href="https://rdrr.io/r/base/eval.html">eval</a></span><span class="op">(</span><span class="fu">yacR</span><span class="fu">::</span><span class="fu"><a href="../../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr</span>, str <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/Ryacas/man/det.html">det</a></span><span class="op">(</span><span class="va">B</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/r/base/eval.html">eval</a></span><span class="op">(</span>
+      <span class="fu">yacR</span><span class="fu">::</span><span class="fu"><a href="../../reference/Exe.html">Exe</a></span><span class="op">(</span>
+        <span class="va">expr</span>,
+        expression <span class="op">=</span> <span class="cn">TRUE</span>,
+        simplify <span class="op">=</span> <span class="cn">TRUE</span>
+      <span class="op">)</span>
+    <span class="op">)</span>
   <span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 <span class="co">#&gt; Test passed 🥇</span></code></pre></div>

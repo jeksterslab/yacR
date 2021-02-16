@@ -25,25 +25,45 @@ a <- 1
 b <- 2
 c <- 3
 d <- 4
-#
 B <- matrix(c(a, c, b, d), ncol = 2)
 #+
 testthat::test_that("a*d-b*c", {
   testthat::expect_equal(
     "a*d-b*c",
-    yacR::Exe(expr, simplify = TRUE)$yacas_cmd,
-    yacR::Exe(expr, str = TRUE, ysym = FALSE)
+    yacR::Exe(
+      expr,
+      expression = FALSE,
+      format = "ysym",
+      simplify = TRUE
+    )$yacas_cmd,
+    yacR::Exe(
+      expr,
+      expression = FALSE,
+      format = "str",
+      simplify = TRUE
+    )
   )
 })
 testthat::test_that("a d - b c", {
   testthat::expect_equal(
     "a d - b c",
-    yacR::Exe(expr, str = TRUE, tex = TRUE)
+    yacR::Exe(
+      expr,
+      expression = FALSE,
+      format = "tex",
+      simplify = TRUE
+    )
   )
 })
 testthat::test_that("det(B)", {
   testthat::expect_equal(
     det(B),
-    eval(yacR::Exe(expr, str = FALSE))
+    eval(
+      yacR::Exe(
+        expr,
+        expression = TRUE,
+        simplify = TRUE
+      )
+    )
   )
 })

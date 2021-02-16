@@ -4,26 +4,23 @@
 \alias{Exe}
 \title{Execute Yacas Expression using Ryacas}
 \usage{
-Exe(expr, str = TRUE, ysym = TRUE, tex = FALSE, simplify = FALSE)
+Exe(expr, expression = FALSE, format = "ysym", simplify = FALSE)
 }
 \arguments{
 \item{expr}{Character string. \code{Yacas} expresion.}
 
-\item{str}{Logical.
-If \code{str = TRUE}, returns symbolic result as string.
-If \code{str = FALSE}, returns symbolic result as an \code{R} expression.}
+\item{expression}{Logical.
+If \code{expression = TRUE}, returns symbolic result as an \code{R} expression.
+If \code{expression = FALSE}, returns symbolic result as \code{"ysym"}, \code{"str"},  or \code{"tex"}.}
 
-\item{ysym}{Logical.
-If \code{ysym = TRUE}, returns symbolic result as \code{yac_symbol}
-if \code{str = TRUE}.
-If \code{ysym = FALSE}, returns symbolic result as string
-if \code{str = TRUE}.}
-
-\item{tex}{Logical.
-If \code{tex = TRUE} returns results as latex math
-if \code{str = TRUE}.
-If \code{tex = FALSE}, returns symbolic result as string
-if \code{str = TRUE}.}
+\item{format}{Character string.
+Only used when \code{expression = FALSE}.
+If \code{format = "ysym"},
+returns symbolic result as \code{yac_symbol}.
+If \code{format = "str"},
+returns symbolic result as a characetr string.
+If \code{format = "tex"},
+returns symbolic result as laTeX math.}
 
 \item{simplify}{Logical. Simplify symbolic results.}
 }
@@ -36,21 +33,21 @@ A <- Ryacas::ysym(
   matrix(c("a", "c", "b", "d"), ncol = 2)
 )
 expr <- paste0("Determinant(", A, ")")
-Exe(expr)
-Exe(expr, str = TRUE, ysym = FALSE)
-Exe(expr, str = TRUE, tex = TRUE)
-Exe(expr, str = FALSE)
+Exe(expr, expression = FALSE, format = "ysym")
+Exe(expr, expression = FALSE, format = "str")
+Exe(expr, expression = FALSE, format = "tex")
+Exe(expr, expression = TRUE)
 
 a <- 1
 b <- 2
 c <- 3
 d <- 4
-eval(Exe(expr, str = FALSE))
+eval(Exe(expr, expression = TRUE))
 
-# `det.yac_symbol` from Ryacas
+# `det.yac_symbol` from `Ryacas`
 Ryacas::det(A)
 
-# `det` from base R
+# `det` from `base` R
 
 A <- matrix(c(a, c, b, d), ncol = 2)
 det(A)

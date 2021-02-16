@@ -1,0 +1,185 @@
+---
+title: "Exe"
+author: "Ivan Jacob Agaloos Pesigan"
+date: "`r Sys.Date()`"
+description: >
+  `Exe` examples.
+output:
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Exe}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This vignette provides examples for the `Exe` function in the `yacR` package.
+
+```{r}
+library(Ryacas)
+library(yacR)
+```
+
+We start with the matrix $\mathbf{A}$ whose elements are
+$\left\{ a, b, c, d \right\}$.
+
+
+```{r}
+(A <- matrix(c("a", "b", "c", "d"), ncol = 2, byrow = TRUE))
+```
+
+```{r, echo=FALSE, results = "asis"}
+cat(
+  "\\begin{align*}",
+  "\\mathbf{A} &=",
+  tex(ysym(A)),
+  "\\end{align*}",
+  sep = ""
+)
+```
+
+We need to convert the matrix `A` into a `yac_symbol` first.
+This can be done using the `Ryacas` function `ysym()`.
+
+```{r}
+(A <- ysym(A))
+```
+
+## Example 1
+
+The `Determinant` of `A` can be obtained in `Yacas`
+with the expression `Determinant(A)`.
+
+```{r}
+expr1 <- paste0("Determinant(", A, ")")
+```
+
+The following returns a **`yac_symbol`** output.
+
+```{r}
+(yac_symbol <- Exe(expr1, expression = FALSE, format = "ysym"))
+str(yac_symbol)
+```
+
+The following returns a **string** output.
+
+```{r}
+(string <- Exe(expr1, expression = FALSE, format = "str"))
+str(string)
+```
+
+The following returns a **`laTeX` mathematics** output.
+
+```{r}
+(latex <- Exe(expr1, expression = FALSE, format = "tex"))
+str(latex)
+```
+
+LaTeX mathematics can be displayed using the following.
+
+```{r, results = "asis"}
+cat(
+  "\\begin{align*}",
+  "\\det \\mathbf{A} &=",
+  latex,
+  "\\end{align*}",
+  sep = ""
+)
+```
+
+The following returns an **`R` `expression`** output.
+
+```{r}
+yacR::Exe(expr1, expression = TRUE)
+```
+
+## Example 2
+
+In the following example we derive the `Transpose` of the matrix `A`
+with the expression `Transpose(A)`.
+
+```{r}
+expr2 <- paste0("Transpose(", A, ")")
+```
+
+The following returns a **`yac_symbol`** output.
+
+```{r}
+(yac_symbol <- Exe(expr2, expression = FALSE, format = "ysym"))
+str(yac_symbol)
+```
+
+The following returns a **string** output.
+
+```{r}
+(string <- Exe(expr2, expression = FALSE, format = "str"))
+str(string)
+```
+
+The following returns a **`laTeX` mathematics** output.
+
+```{r}
+(latex <- Exe(expr2, expression = FALSE, format = "tex"))
+str(latex)
+```
+
+LaTeX mathematics can be displayed using the following.
+
+```{r, results = "asis"}
+cat(
+  "\\begin{align*}",
+  "\\mathbf{A}^{\\mathsf{T}} &=",
+  latex,
+  "\\end{align*}",
+  sep = ""
+)
+```
+
+The following returns an **`R` `expression`** output.
+
+```{r}
+yacR::Exe(expr2, expression = TRUE)
+```
+
+## Numeric
+
+The `R` expression outputs can be evaluated numerically using the `eval` function.
+The symbols `a`, `b`, `c`, and `d`
+should have values in the environment `eval` is using.
+
+```{r}
+a <- 1
+b <- 2
+c <- 3
+d <- 4
+```
+
+Below is the numerical result for example 1
+```{r}
+eval(yacR::Exe(expr1, expression = TRUE))
+```
+
+which is equal to the following.
+
+```{r}
+det(matrix(1:4, ncol = 2, byrow = TRUE))
+```
+
+Below is the numerical result for example 2
+
+```{r}
+eval(yacR::Exe(expr2, expression = TRUE))
+```
+
+which is equal to the following.
+
+```{r}
+t(matrix(1:4, ncol = 2, byrow = TRUE))
+```
