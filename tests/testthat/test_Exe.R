@@ -32,13 +32,16 @@ testthat::test_that("a*d-b*c", {
     "a*d-b*c",
     yacR::Exe(
       expr,
-      expression = FALSE,
+      R = FALSE,
       format = "ysym",
       simplify = TRUE
-    )$yacas_cmd,
+    )$yacas_cmd
+  )
+  testthat::expect_equal(
+    "a*d-b*c",
     yacR::Exe(
       expr,
-      expression = FALSE,
+      R = FALSE,
       format = "str",
       simplify = TRUE
     )
@@ -49,7 +52,7 @@ testthat::test_that("a d - b c", {
     "a d - b c",
     yacR::Exe(
       expr,
-      expression = FALSE,
+      R = FALSE,
       format = "tex",
       simplify = TRUE
     )
@@ -61,7 +64,7 @@ testthat::test_that("det(B)", {
     eval(
       yacR::Exe(
         expr,
-        expression = TRUE,
+        R = TRUE,
         simplify = TRUE
       )
     )

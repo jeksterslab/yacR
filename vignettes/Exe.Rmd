@@ -64,21 +64,21 @@ expr1 <- paste0("Determinant(", A, ")")
 The following returns a **`yac_symbol`** output.
 
 ```{r}
-(yac_symbol <- Exe(expr1, expression = FALSE, format = "ysym"))
+(yac_symbol <- Exe(expr1, R = FALSE, format = "ysym"))
 str(yac_symbol)
 ```
 
 The following returns a **string** output.
 
 ```{r}
-(string <- Exe(expr1, expression = FALSE, format = "str"))
+(string <- Exe(expr1, R = FALSE, format = "str"))
 str(string)
 ```
 
 The following returns a **`laTeX` mathematics** output.
 
 ```{r}
-(latex <- Exe(expr1, expression = FALSE, format = "tex"))
+(latex <- Exe(expr1, R = FALSE, format = "tex"))
 str(latex)
 ```
 
@@ -97,7 +97,7 @@ cat(
 The following returns an **`R` `expression`** output.
 
 ```{r}
-yacR::Exe(expr1, expression = TRUE)
+yacR::Exe(expr1, R = TRUE)
 ```
 
 ## Example 2
@@ -112,21 +112,21 @@ expr2 <- paste0("Transpose(", A, ")")
 The following returns a **`yac_symbol`** output.
 
 ```{r}
-(yac_symbol <- Exe(expr2, expression = FALSE, format = "ysym"))
+(yac_symbol <- Exe(expr2, R = FALSE, format = "ysym"))
 str(yac_symbol)
 ```
 
 The following returns a **string** output.
 
 ```{r}
-(string <- Exe(expr2, expression = FALSE, format = "str"))
+(string <- Exe(expr2, R = FALSE, format = "str"))
 str(string)
 ```
 
 The following returns a **`laTeX` mathematics** output.
 
 ```{r}
-(latex <- Exe(expr2, expression = FALSE, format = "tex"))
+(latex <- Exe(expr2, R = FALSE, format = "tex"))
 str(latex)
 ```
 
@@ -145,7 +145,7 @@ cat(
 The following returns an **`R` `expression`** output.
 
 ```{r}
-yacR::Exe(expr2, expression = TRUE)
+yacR::Exe(expr2, R = TRUE)
 ```
 
 ## Numeric
@@ -163,7 +163,7 @@ d <- 4
 
 Below is the numerical result for example 1
 ```{r}
-eval(yacR::Exe(expr1, expression = TRUE))
+eval(yacR::Exe(expr1, R = TRUE))
 ```
 
 which is equal to the following.
@@ -175,7 +175,7 @@ det(matrix(1:4, ncol = 2, byrow = TRUE))
 Below is the numerical result for example 2
 
 ```{r}
-eval(yacR::Exe(expr2, expression = TRUE))
+eval(yacR::Exe(expr2, R = TRUE))
 ```
 
 which is equal to the following.

@@ -4,17 +4,17 @@
 \alias{Exe}
 \title{Execute Yacas Expression using Ryacas}
 \usage{
-Exe(expr, expression = FALSE, format = "ysym", simplify = FALSE)
+Exe(x, R = FALSE, format = "ysym", simplify = FALSE)
 }
 \arguments{
-\item{expr}{Character string. \code{Yacas} expresion.}
+\item{x}{Character string. \code{Yacas} expression.}
 
-\item{expression}{Logical.
-If \code{expression = TRUE}, returns symbolic result as an \code{R} expression.
-If \code{expression = FALSE}, returns symbolic result as \code{"ysym"}, \code{"str"},  or \code{"tex"}.}
+\item{R}{Logical.
+If \code{R = TRUE}, returns symbolic result as an \code{R} expression.
+If \code{R = FALSE}, returns symbolic result as \code{"ysym"}, \code{"str"},  or \code{"tex"}.}
 
 \item{format}{Character string.
-Only used when \code{expression = FALSE}.
+Only used when \code{R = FALSE}.
 If \code{format = "ysym"},
 returns symbolic result as \code{yac_symbol}.
 If \code{format = "str"},
@@ -32,17 +32,17 @@ with different output options.
 A <- Ryacas::ysym(
   matrix(c("a", "c", "b", "d"), ncol = 2)
 )
-expr <- paste0("Determinant(", A, ")")
-Exe(expr, expression = FALSE, format = "ysym")
-Exe(expr, expression = FALSE, format = "str")
-Exe(expr, expression = FALSE, format = "tex")
-Exe(expr, expression = TRUE)
+x <- paste0("Determinant(", A, ")")
+Exe(x, R = FALSE, format = "ysym")
+Exe(x, R = FALSE, format = "str")
+Exe(x, R = FALSE, format = "tex")
+Exe(x, R = TRUE)
 
 a <- 1
 b <- 2
 c <- 3
 d <- 4
-eval(Exe(expr, expression = TRUE))
+eval(Exe(x, R = TRUE))
 
 # `det.yac_symbol` from `Ryacas`
 Ryacas::det(A)

@@ -12,7 +12,7 @@
 #'   If `R = TRUE`, returns symbolic result as an `R` expression.
 #'   If `R = FALSE`, returns symbolic result as `"ysym"`, `"str"`,  or `"tex"`.
 #' @param format Character string.
-#'   Only used when `expression = FALSE`.
+#'   Only used when `R = FALSE`.
 #'   If `format = "ysym"`,
 #'   returns symbolic result as `yac_symbol`.
 #'   If `format = "str"`,

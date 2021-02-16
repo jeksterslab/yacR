@@ -146,25 +146,25 @@ with different output options." />
 with different output options.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>Exe</span><span class='op'>(</span><span class='va'>expr</span>, expression <span class='op'>=</span> <span class='cn'>FALSE</span>, format <span class='op'>=</span> <span class='st'>"ysym"</span>, simplify <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>Exe</span><span class='op'>(</span><span class='va'>x</span>, R <span class='op'>=</span> <span class='cn'>FALSE</span>, format <span class='op'>=</span> <span class='st'>"ysym"</span>, simplify <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>expr</th>
-      <td><p>Character string. <code>Yacas</code> expresion.</p></td>
+      <th>x</th>
+      <td><p>Character string. <code>Yacas</code> expression.</p></td>
     </tr>
     <tr>
-      <th>expression</th>
+      <th>R</th>
       <td><p>Logical.
-If <code>expression = TRUE</code>, returns symbolic result as an <code>R</code> expression.
-If <code>expression = FALSE</code>, returns symbolic result as <code>"ysym"</code>, <code>"str"</code>,  or <code>"tex"</code>.</p></td>
+If <code>R = TRUE</code>, returns symbolic result as an <code>R</code> expression.
+If <code>R = FALSE</code>, returns symbolic result as <code>"ysym"</code>, <code>"str"</code>,  or <code>"tex"</code>.</p></td>
     </tr>
     <tr>
       <th>format</th>
       <td><p>Character string.
-Only used when <code>expression = FALSE</code>.
+Only used when <code>R = FALSE</code>.
 If <code>format = "ysym"</code>,
 returns symbolic result as <code>yac_symbol</code>.
 If <code>format = "str"</code>,
@@ -190,17 +190,17 @@ returns symbolic result as laTeX math.</p></td>
     <pre class="examples"><div class='input'><span class='va'>A</span> <span class='op'>&lt;-</span> <span class='fu'>Ryacas</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/Ryacas/man/ysym.html'>ysym</a></span><span class='op'>(</span>
   <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"c"</span>, <span class='st'>"b"</span>, <span class='st'>"d"</span><span class='op'>)</span>, ncol <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
 <span class='op'>)</span>
-<span class='va'>expr</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"Determinant("</span>, <span class='va'>A</span>, <span class='st'>")"</span><span class='op'>)</span>
-<span class='fu'>Exe</span><span class='op'>(</span><span class='va'>expr</span>, expression <span class='op'>=</span> <span class='cn'>FALSE</span>, format <span class='op'>=</span> <span class='st'>"ysym"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; y: a*d-b*c</div><div class='input'><span class='fu'>Exe</span><span class='op'>(</span><span class='va'>expr</span>, expression <span class='op'>=</span> <span class='cn'>FALSE</span>, format <span class='op'>=</span> <span class='st'>"str"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a*d-b*c"</div><div class='input'><span class='fu'>Exe</span><span class='op'>(</span><span class='va'>expr</span>, expression <span class='op'>=</span> <span class='cn'>FALSE</span>, format <span class='op'>=</span> <span class='st'>"tex"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "a d - b c"</div><div class='input'><span class='fu'>Exe</span><span class='op'>(</span><span class='va'>expr</span>, expression <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"Determinant("</span>, <span class='va'>A</span>, <span class='st'>")"</span><span class='op'>)</span>
+<span class='fu'>Exe</span><span class='op'>(</span><span class='va'>x</span>, R <span class='op'>=</span> <span class='cn'>FALSE</span>, format <span class='op'>=</span> <span class='st'>"ysym"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; y: a*d-b*c</div><div class='input'><span class='fu'>Exe</span><span class='op'>(</span><span class='va'>x</span>, R <span class='op'>=</span> <span class='cn'>FALSE</span>, format <span class='op'>=</span> <span class='st'>"str"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "a*d-b*c"</div><div class='input'><span class='fu'>Exe</span><span class='op'>(</span><span class='va'>x</span>, R <span class='op'>=</span> <span class='cn'>FALSE</span>, format <span class='op'>=</span> <span class='st'>"tex"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "a d - b c"</div><div class='input'><span class='fu'>Exe</span><span class='op'>(</span><span class='va'>x</span>, R <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; expression(a * d - b * c)</div><div class='input'>
 <span class='va'>a</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
 <span class='va'>b</span> <span class='op'>&lt;-</span> <span class='fl'>2</span>
 <span class='va'>c</span> <span class='op'>&lt;-</span> <span class='fl'>3</span>
 <span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fl'>4</span>
-<span class='fu'><a href='https://rdrr.io/r/base/eval.html'>eval</a></span><span class='op'>(</span><span class='fu'>Exe</span><span class='op'>(</span><span class='va'>expr</span>, expression <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/eval.html'>eval</a></span><span class='op'>(</span><span class='fu'>Exe</span><span class='op'>(</span><span class='va'>x</span>, R <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] -2</div><div class='input'>
 <span class='co'># `det.yac_symbol` from `Ryacas`</span>
 <span class='fu'>Ryacas</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/Ryacas/man/det.html'>det</a></span><span class='op'>(</span><span class='va'>A</span><span class='op'>)</span>
