@@ -104,7 +104,7 @@
       <h1 data-toc-skip>Exe</h1>
                         <h4 class="author">Ivan Jacob Agaloos Pesigan</h4>
             
-            <h4 class="date">2021-02-17</h4>
+            <h4 class="date">2021-02-18</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/jeksterslab/yacR/blob/master/vignettes/Exe.Rmd"><code>vignettes/Exe.Rmd</code></a></small>
       <div class="hidden name"><code>Exe.Rmd</code></div>
@@ -113,7 +113,7 @@
 
     
     
-<p>This vignette provides examples for the [Exe()] function in the <code>yacR</code> package.</p>
+<p>This vignette provides examples for the <code><a href="../reference/Exe.html">Exe()</a></code> function in the <code>yacR</code> package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-cas/ryacas">Ryacas</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jeksterslab/yacR">yacR</a></span><span class="op">)</span></code></pre></div>
@@ -121,9 +121,10 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><span class="math display">\[\begin{align*}\mathbf{A} &amp;=\left( \begin{array}{cc} a &amp; b \\ c &amp; d \end{array} \right)\end{align*}\]</span></p>
-<p>We need to convert the matrix <code>A</code> into a <code>yac_symbol</code> first. This can be done using the <code>Ryacas</code> function <code><a href="https://rdrr.io/pkg/Ryacas/man/ysym.html">ysym()</a></code>.</p>
+<p>We need to convert the matrix <code>A</code> into a <code>yac_symbol</code> first. This can be done using the <code>Ryacas</code> function <code><a href="https://rdrr.io/pkg/Ryacas/man/ysym.html">ysym()</a></code>. The <code>yacR</code> package has an alternative function, <code><a href="../reference/as.yac_symbol.html">as.ysym()</a></code>, to convert an object into a <code>yac_symbol</code>. It is a <strong>safe</strong> conversion tool which checks if the object is of class <code>yac_symbol</code> before converting it to one. If the target object is already of class <code>yac_symbol</code> it simply returns the object. If the target is not of class <code>yac_symbol</code>, it uses the <code><a href="https://rdrr.io/pkg/Ryacas/man/ysym.html">ysym()</a></code> function from <code>Ryacas</code> to convert the target object into a <code>yac_symbol</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/Ryacas/man/ysym.html">ysym</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/Ryacas/man/ysym.html">ysym</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span>
+<span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/as.yac_symbol.html">as.ysym</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></code></pre></div>
 <div id="example-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-1" class="anchor"></a>Example 1</h2>

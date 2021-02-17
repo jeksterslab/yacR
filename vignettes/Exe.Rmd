@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This vignette provides examples for the [Exe()] function in the `yacR` package.
+This vignette provides examples for the `Exe()` function in the `yacR` package.
 
 ```{r, warning = FALSE, results = 'hide', message = FALSE}
 library(Ryacas)
@@ -47,9 +47,20 @@ cat(
 
 We need to convert the matrix `A` into a `yac_symbol` first.
 This can be done using the `Ryacas` function `ysym()`.
+The `yacR` package has an alternative function,
+`as.ysym()`, to convert an object into a `yac_symbol`.
+It is a **safe** conversion tool
+which checks if the object is of class `yac_symbol`
+before converting it to one.
+If the target object is already of class `yac_symbol`
+it simply returns the object.
+If the target is not of class `yac_symbol`,
+it uses the `ysym()` function from `Ryacas`
+to convert the target object into a `yac_symbol`.
 
 ```{r}
 A <- ysym(A)
+A <- as.ysym(A)
 ```
 
 ## Example 1
