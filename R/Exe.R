@@ -5,6 +5,9 @@
 #'
 #' @author Ivan Jacob Agaloos Pesigan
 #'
+#' @family execute functions
+#' @keywords execute
+#'
 #' @inherit yacR references
 #'
 #' @param x Character string. `Yacas` expression.

@@ -19,6 +19,13 @@ using \code{\link[Ryacas:tex]{Ryacas::tex()}}.
 (x <- matrix(1:10, ncol = 2))
 as.tex(x)
 }
+\seealso{
+Other assert functions: 
+\code{\link{as.yac_symbol.mat}()},
+\code{\link{as.yac_symbol}()}
+}
 \author{
 Ivan Jacob Agaloos Pesigan
 }
+\concept{assert functions}
+\keyword{assert}

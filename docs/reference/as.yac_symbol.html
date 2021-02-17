@@ -113,6 +113,9 @@ and returns the result." />
       <a href="../articles/tests/test_as.yac_symbol.html">Test: as.yac_symbol</a>
     </li>
     <li>
+      <a href="../articles/tests/test_as.yac_symbol.mat.html">Test: as.yac_symbol.mat</a>
+    </li>
+    <li>
       <a href="../articles/tests/test_is.yac_symbol.html">Test: is.yac_symbol</a>
     </li>
   </ul>
@@ -142,7 +145,7 @@ and returns the result." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Coerce to an Object of Class <code>yac_symbol</code></h1>
-    <small class="dont-index">Source: <a href='https://github.com/jeksterslab/yacR/blob/master/R/is.yac_symbol.R'><code>R/is.yac_symbol.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/jeksterslab/yacR/blob/master/R/as.yac_symbol.R'><code>R/as.yac_symbol.R</code></a></small>
     <div class="hidden name"><code>as.yac_symbol.Rd</code></div>
     </div>
 
@@ -166,6 +169,11 @@ and returns the result.</p>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other assert functions: 
+<code><a href='as.tex.html'>as.tex</a>()</code>,
+<code><a href='as.yac_symbol.mat.html'>as.yac_symbol.mat</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Ivan Jacob Agaloos Pesigan</p>
@@ -174,7 +182,10 @@ and returns the result.</p>
     <pre class="examples"><div class='input'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>
 <span class='fu'>as.yac_symbol</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; {1, 2, 3, 4, 5} </div><div class='input'><span class='fu'>as.yac_symbol</span><span class='op'>(</span><span class='fu'>Ryacas</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/Ryacas/man/ysym.html'>ysym</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; {1, 2, 3, 4, 5} </div></pre>
+</div><div class='output co'>#&gt; {1, 2, 3, 4, 5} </div><div class='input'><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>6</span><span class='op'>:</span><span class='fl'>10</span>
+<span class='fu'>as.ysym</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; {6, 7, 8, 9, 10} </div><div class='input'><span class='fu'>as.ysym</span><span class='op'>(</span><span class='fu'>Ryacas</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/Ryacas/man/ysym.html'>ysym</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; {6, 7, 8, 9, 10} </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

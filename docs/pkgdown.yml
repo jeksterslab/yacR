@@ -6,9 +6,10 @@ articles:
   tests/test_Exe: test_Exe.html
   tests/test_as.tex: test_as.tex.html
   tests/test_as.yac_symbol: test_as.yac_symbol.html
+  tests/test_as.yac_symbol.mat: test_as.yac_symbol.mat.html
   tests/test_is.yac_symbol: test_is.yac_symbol.html
   yacR: yacR.html
-last_built: 2021-02-17T12:52Z
+last_built: 2021-02-17T14:33Z
 urls:
   reference: https://github.com/jeksterslab/yacR//reference
   article: https://github.com/jeksterslab/yacR//articles

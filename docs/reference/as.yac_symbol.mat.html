@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Test for Object of Class yac_symbol — is.yac_symbol • yacR</title>
+<title>Coerce to yac_symbol Matrix — as.yac_symbol.mat • yacR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,12 @@
 
 
 
-<meta property="og:title" content="Test for Object of Class yac_symbol — is.yac_symbol" />
-<meta property="og:description" content="Tests if an R object x is of class yac_symbol." />
+<meta property="og:title" content="Coerce to yac_symbol Matrix — as.yac_symbol.mat" />
+<meta property="og:description" content="The function uses as.yac_symbol()
+to convert x to an object of class yac_symbol y.
+If y$is_mat = TRUE, the function returns y.
+If y$is_vec = TRUE, the function converts y
+to a column vector, that is, an m by 1 matrix." />
 
 
 
@@ -141,18 +145,22 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Test for Object of Class <code>yac_symbol</code></h1>
-    <small class="dont-index">Source: <a href='https://github.com/jeksterslab/yacR/blob/master/R/as.yac_symbol.R'><code>R/as.yac_symbol.R</code></a></small>
-    <div class="hidden name"><code>is.yac_symbol.Rd</code></div>
+    <h1>Coerce to <code>yac_symbol</code> Matrix</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jeksterslab/yacR/blob/master/R/as.yac_symbol.mat.R'><code>R/as.yac_symbol.mat.R</code></a></small>
+    <div class="hidden name"><code>as.yac_symbol.mat.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Tests if an <code>R</code> object <code>x</code> is of class <code>yac_symbol</code>.</p>
+    <p>The function uses <code><a href='as.yac_symbol.html'>as.yac_symbol()</a></code>
+to convert <code>x</code> to an object of class <code>yac_symbol</code> <code>y</code>.
+If <code>y$is_mat = TRUE</code>, the function returns <code>y</code>.
+If <code>y$is_vec = TRUE</code>, the function converts <code>y</code>
+to a column vector, that is, an <code>m by 1</code> matrix.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>is.yac_symbol</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>as.yac_symbol.mat</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
-<span class='fu'>is.ysym</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+<span class='fu'>as.ysym.mat</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -163,18 +171,49 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other assert functions: 
+<code><a href='as.tex.html'>as.tex</a>()</code>,
+<code><a href='as.yac_symbol.html'>as.yac_symbol</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Ivan Jacob Agaloos Pesigan</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>
-<span class='fu'>is.yac_symbol</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>is.yac_symbol</span><span class='op'>(</span><span class='fu'>Ryacas</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/Ryacas/man/ysym.html'>ysym</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>6</span><span class='op'>:</span><span class='fl'>10</span>
-<span class='fu'>is.ysym</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>is.ysym</span><span class='op'>(</span><span class='fu'>Ryacas</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/Ryacas/man/ysym.html'>ysym</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] TRUE</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>as.yac_symbol.mat</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; {{1},
+#&gt;  {2},
+#&gt;  {3},
+#&gt;  {4},
+#&gt;  {5}} </div><div class='input'><span class='op'>(</span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, ncol <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      [,1] [,2]
+#&gt; [1,]    1    6
+#&gt; [2,]    2    7
+#&gt; [3,]    3    8
+#&gt; [4,]    4    9
+#&gt; [5,]    5   10</div><div class='input'><span class='fu'>as.yac_symbol.mat</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; {{ 1,  6},
+#&gt;  { 2,  7},
+#&gt;  { 3,  8},
+#&gt;  { 4,  9},
+#&gt;  { 5, 10}} </div><div class='input'><span class='fu'>as.ysym.mat</span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; {{ 6},
+#&gt;  { 7},
+#&gt;  { 8},
+#&gt;  { 9},
+#&gt;  {10}} </div><div class='input'><span class='op'>(</span><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>11</span><span class='op'>:</span><span class='fl'>20</span>, ncol <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      [,1] [,2]
+#&gt; [1,]   11   16
+#&gt; [2,]   12   17
+#&gt; [3,]   13   18
+#&gt; [4,]   14   19
+#&gt; [5,]   15   20</div><div class='input'><span class='fu'>as.ysym.mat</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; {{11, 16},
+#&gt;  {12, 17},
+#&gt;  {13, 18},
+#&gt;  {14, 19},
+#&gt;  {15, 20}} </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

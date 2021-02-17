@@ -3,6 +3,8 @@
 export(Exe)
 export(as.tex)
 export(as.yac_symbol)
+export(as.yac_symbol.mat)
 export(as.ysym)
+export(as.ysym.mat)
 export(is.yac_symbol)
 export(is.ysym)

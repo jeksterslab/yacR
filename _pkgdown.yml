@@ -1,2 +1,20 @@
 destination: docs
 url: https://github.com/jeksterslab/yacR/
+
+reference:
+- title: yacR
+  desc: Package description.
+- contents:
+  - has_keyword("yacR")
+- title: Exe
+  desc: Execute.
+- contents:
+  - has_keyword("execute")
+- title: Predicate
+  desc: Predicate functions.
+- contents:
+  - has_keyword("predicate")
+- title: Assert
+  desc: Assert functions.
+- contents:
+  - has_keyword("assert")

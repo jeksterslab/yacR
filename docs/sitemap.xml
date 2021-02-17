@@ -13,6 +13,9 @@
     <loc>https://github.com/jeksterslab/yacR//reference/as.yac_symbol.html</loc>
   </url>
   <url>
+    <loc>https://github.com/jeksterslab/yacR//reference/as.yac_symbol.mat.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/jeksterslab/yacR//reference/is.yac_symbol.html</loc>
   </url>
   <url>
@@ -29,6 +32,9 @@
   </url>
   <url>
     <loc>https://github.com/jeksterslab/yacR//articles/tests/test_as.yac_symbol.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/jeksterslab/yacR//articles/tests/test_as.yac_symbol.mat.html</loc>
   </url>
   <url>
     <loc>https://github.com/jeksterslab/yacR//articles/tests/test_is.yac_symbol.html</loc>
