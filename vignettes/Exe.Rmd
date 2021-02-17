@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This vignette provides examples for the `Exe` function in the `yacR` package.
+This vignette provides examples for the [Exe()] function in the `yacR` package.
 
 ```{r, warning = FALSE, results = 'hide', message = FALSE}
 library(Ryacas)
@@ -64,33 +64,35 @@ expr1 <- paste0("Determinant(", A, ")")
 The following returns a **`yac_symbol`** output.
 
 ```{r}
-yac_symbol <- Exe(expr1, R = FALSE, format = "ysym")
+yac_symbol <- Exe(expr1)
 str(yac_symbol)
 ```
 
 The following returns a **string** output.
 
 ```{r}
-string <- Exe(expr1, R = FALSE, format = "str")
+string <- Exe(expr1, format = "str")
 str(string)
 ```
 
 The following returns a **`LaTeX` mathematics** output.
 
 ```{r}
-latex <- Exe(expr1, R = FALSE, format = "tex")
+latex <- Exe(expr1, format = "tex")
 str(latex)
 ```
 
-LaTeX mathematics can be displayed using the following.
+LaTeX mathematics can be displayed **inline**
+by enclosing the code or object with ``$`r `$``.
 
-Inline using inline operator `r` enclosed by `$`.
 $`r latex`$
 
-Centered equation using the inline operator `r` enclosed by `$$`.
+It can be displayed as a **centered equation**
+by enclosing the code or object with ``$$`r `$$``.
+
 $$`r latex`$$
 
-As an `R` code chuck.
+It can also be displayed as an `R` code chuck.
 Remember to set `results = "asis"`.
 
 ```{r, results = "asis"}
@@ -121,21 +123,21 @@ expr2 <- paste0("Transpose(", A, ")")
 The following returns a **`yac_symbol`** output.
 
 ```{r}
-yac_symbol <- Exe(expr2, R = FALSE, format = "ysym")
+yac_symbol <- Exe(expr2)
 str(yac_symbol)
 ```
 
 The following returns a **string** output.
 
 ```{r}
-string <- Exe(expr2, R = FALSE, format = "str")
+string <- Exe(expr2, format = "str")
 str(string)
 ```
 
 The following returns a **`LaTeX` mathematics** output.
 
 ```{r}
-latex <- Exe(expr2, R = FALSE, format = "tex")
+latex <- Exe(expr2, format = "tex")
 str(latex)
 ```
 

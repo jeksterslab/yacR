@@ -110,7 +110,7 @@
 
     
     
-<p>This vignette provides examples for the <code>Exe</code> function in the <code>yacR</code> package.</p>
+<p>This vignette provides examples for the [Exe()] function in the <code>yacR</code> package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-cas/ryacas">Ryacas</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jeksterslab/yacR">yacR</a></span><span class="op">)</span></code></pre></div>
@@ -129,7 +129,7 @@
 <code class="sourceCode R"><span class="va">expr1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Determinant("</span>, <span class="va">A</span>, <span class="st">")"</span><span class="op">)</span></code></pre></div>
 <p>The following returns a <strong><code>yac_symbol</code></strong> output.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">yac_symbol</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr1</span>, R <span class="op">=</span> <span class="cn">FALSE</span>, format <span class="op">=</span> <span class="st">"ysym"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">yac_symbol</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr1</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">yac_symbol</span><span class="op">)</span>
 <span class="co">#&gt; List of 3</span>
 <span class="co">#&gt;  $ yacas_cmd: chr "a*d-b*c"</span>
@@ -137,18 +137,19 @@
 <span class="co">#&gt;  $ is_vec   : logi FALSE</span></code></pre></div>
 <p>The following returns a <strong>string</strong> output.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">string</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr1</span>, R <span class="op">=</span> <span class="cn">FALSE</span>, format <span class="op">=</span> <span class="st">"str"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">string</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr1</span>, format <span class="op">=</span> <span class="st">"str"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">string</span><span class="op">)</span>
 <span class="co">#&gt;  chr "a*d-b*c"</span></code></pre></div>
 <p>The following returns a <strong><code>LaTeX</code> mathematics</strong> output.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">latex</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr1</span>, R <span class="op">=</span> <span class="cn">FALSE</span>, format <span class="op">=</span> <span class="st">"tex"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">latex</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr1</span>, format <span class="op">=</span> <span class="st">"tex"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">latex</span><span class="op">)</span>
 <span class="co">#&gt;  chr "a d - b c"</span></code></pre></div>
-<p>LaTeX mathematics can be displayed using the following.</p>
-<p>Inline using inline operator <code>r</code> enclosed by <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code>. <span class="math inline">\(a d - b c\)</span></p>
-<p>Centered equation using the inline operator <code>r</code> enclosed by <code>$$</code>. <span class="math display">\[a d - b c\]</span></p>
-<p>As an <code>R</code> code chuck. Remember to set <code>results = "asis"</code>.</p>
+<p>LaTeX mathematics can be displayed <strong>inline</strong> by enclosing the code or object with <code>$`r `$</code>.</p>
+<p><span class="math inline">\(a d - b c\)</span></p>
+<p>It can be displayed as a <strong>centered equation</strong> by enclosing the code or object with <code>$$`r `$$</code>.</p>
+<p><span class="math display">\[a d - b c\]</span></p>
+<p>It can also be displayed as an <code>R</code> code chuck. Remember to set <code>results = "asis"</code>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>
   <span class="st">"\\begin{align*}"</span>,
@@ -171,7 +172,7 @@
 <code class="sourceCode R"><span class="va">expr2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Transpose("</span>, <span class="va">A</span>, <span class="st">")"</span><span class="op">)</span></code></pre></div>
 <p>The following returns a <strong><code>yac_symbol</code></strong> output.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">yac_symbol</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr2</span>, R <span class="op">=</span> <span class="cn">FALSE</span>, format <span class="op">=</span> <span class="st">"ysym"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">yac_symbol</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr2</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">yac_symbol</span><span class="op">)</span>
 <span class="co">#&gt; List of 3</span>
 <span class="co">#&gt;  $ yacas_cmd: chr "{{a,c},{b,d}}"</span>
@@ -179,12 +180,12 @@
 <span class="co">#&gt;  $ is_vec   : logi FALSE</span></code></pre></div>
 <p>The following returns a <strong>string</strong> output.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">string</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr2</span>, R <span class="op">=</span> <span class="cn">FALSE</span>, format <span class="op">=</span> <span class="st">"str"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">string</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr2</span>, format <span class="op">=</span> <span class="st">"str"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">string</span><span class="op">)</span>
 <span class="co">#&gt;  chr "{{a,c},{b,d}}"</span></code></pre></div>
 <p>The following returns a <strong><code>LaTeX</code> mathematics</strong> output.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">latex</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr2</span>, R <span class="op">=</span> <span class="cn">FALSE</span>, format <span class="op">=</span> <span class="st">"tex"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">latex</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Exe.html">Exe</a></span><span class="op">(</span><span class="va">expr2</span>, format <span class="op">=</span> <span class="st">"tex"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">latex</span><span class="op">)</span>
 <span class="co">#&gt;  chr "\\left( \\begin{array}{cc} a &amp; c \\\\ b &amp; d \\end{array} \\right)"</span></code></pre></div>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">

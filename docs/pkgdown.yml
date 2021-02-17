@@ -8,7 +8,7 @@ articles:
   tests/test_as.yac_symbol: test_as.yac_symbol.html
   tests/test_is.yac_symbol: test_is.yac_symbol.html
   yacR: yacR.html
-last_built: 2021-02-17T11:26Z
+last_built: 2021-02-17T12:52Z
 urls:
   reference: https://github.com/jeksterslab/yacR//reference
   article: https://github.com/jeksterslab/yacR//articles
