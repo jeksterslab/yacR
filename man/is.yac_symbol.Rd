@@ -2,9 +2,12 @@
 % Please edit documentation in R/is.yac_symbol.R
 \name{is.yac_symbol}
 \alias{is.yac_symbol}
+\alias{is.ysym}
 \title{Test for Object of Class \code{yac_symbol}}
 \usage{
 is.yac_symbol(x)
+
+is.ysym(x)
 }
 \arguments{
 \item{x}{Object.}

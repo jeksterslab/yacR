@@ -19,11 +19,11 @@ knitr::opts_chunk$set(
 #'
 testthat::test_that("TRUE", {
   testthat::expect_true(
-    yacR::is.yac_symbol(Ryacas::ysym(1:5))
+    yacR::is.ysym(Ryacas::ysym(1:5))
   )
 })
 testthat::test_that("FALSE", {
   testthat::expect_false(
-    yacR::is.yac_symbol(1:5)
+    yacR::is.ysym(1:5)
   )
 })

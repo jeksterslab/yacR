@@ -2,4 +2,6 @@
 
 export(Exe)
 export(as.yac_symbol)
+export(as.ysym)
 export(is.yac_symbol)
+export(is.ysym)

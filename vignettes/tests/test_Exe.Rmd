@@ -76,5 +76,15 @@ testthat::test_that("det(B)", {
     )
   )
 })
+testthat::test_that("error", {
+  testthat::expect_error(
+    yacR::Exe(
+      expr,
+      R = FALSE,
+      format = "error",
+      simplify = TRUE
+    )
+  )
+})
 ```
 

@@ -2,9 +2,12 @@
 % Please edit documentation in R/is.yac_symbol.R
 \name{as.yac_symbol}
 \alias{as.yac_symbol}
+\alias{as.ysym}
 \title{Coerce to an Object of Class \code{yac_symbol}}
 \usage{
 as.yac_symbol(x)
+
+as.ysym(x)
 }
 \arguments{
 \item{x}{Object.}
