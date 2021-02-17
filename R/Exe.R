@@ -60,20 +60,25 @@ Exe <- function(x,
     return(
       Ryacas::yac_expr(x)
     )
-  }
-  if (format == "str") {
-    return(Ryacas::yac_str(x))
-  }
-  if (format == "ysym") {
-    return(
-      Ryacas::ysym(Ryacas::yac_str(x))
-    )
-  }
-  if (format == "tex") {
-    return(
-      Ryacas::tex(
-        Ryacas::ysym(Ryacas::yac_str(x))
+  } else {
+    if (format == "str") {
+      return(Ryacas::yac_str(x))
+    } else if (format == "ysym") {
+      return(
+        Ryacas::ysym(
+          Ryacas::yac_str(x)
+        )
       )
-    )
+    } else if (format == "tex") {
+      return(
+        Ryacas::tex(
+          Ryacas::ysym(
+            Ryacas::yac_str(x)
+          )
+        )
+      )
+    } else {
+      stop("Unknown string `format`.")
+    }
   }
 }
