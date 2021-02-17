@@ -16,6 +16,12 @@ is.yac_symbol <- function(x) {
   )
 }
 
+#' @rdname is.yac_symbol
+#' @export
+is.ysym <- function(x) {
+  is.yac_symbol(x)
+}
+
 #' Coerce to an Object of Class `yac_symbol`
 #'
 #' The function checks if `x` is of class `yac_symbol`.
@@ -37,4 +43,10 @@ as.yac_symbol <- function(x) {
   } else {
     return(Ryacas::ysym(x))
   }
+}
+
+#' @rdname as.yac_symbol
+#' @export
+as.ysym <- function(x) {
+  as.yac_symbol(x)
 }
