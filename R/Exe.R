@@ -19,7 +19,7 @@
 #'   If `format = "str"`,
 #'   returns symbolic result as a characetr string.
 #'   If `format = "tex"`,
-#'   returns symbolic result as laTeX math.
+#'   returns symbolic result as LaTeX math.
 #' @param simplify Logical. Simplify symbolic results.
 #' @examples
 #' A <- Ryacas::ysym(

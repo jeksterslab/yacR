@@ -26,7 +26,7 @@ is.ysym <- function(x) {
 #'
 #' The function checks if `x` is of class `yac_symbol`.
 #' If the test is `TRUE`, it returns `x`.
-#' otherwise, it applies `Ryacas::ysym` to `x`
+#' otherwise, it applies [Ryacas::ysym()] to `x`
 #' and returns the result.
 #'
 #' @author Ivan Jacob Agaloos Pesigan

@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 This vignette provides examples for the `Exe` function in the `yacR` package.
 
-```{r}
+```{r, warning = FALSE, results = 'hide', message = FALSE}
 library(Ryacas)
 library(yacR)
 ```
@@ -32,14 +32,14 @@ $\left\{ a, b, c, d \right\}$.
 
 
 ```{r}
-(A <- matrix(c("a", "b", "c", "d"), ncol = 2, byrow = TRUE))
+A <- matrix(c("a", "b", "c", "d"), ncol = 2, byrow = TRUE)
 ```
 
 ```{r, echo=FALSE, results = "asis"}
 cat(
   "\\begin{align*}",
   "\\mathbf{A} &=",
-  tex(ysym(A)),
+  as.tex(A),
   "\\end{align*}",
   sep = ""
 )
@@ -49,7 +49,7 @@ We need to convert the matrix `A` into a `yac_symbol` first.
 This can be done using the `Ryacas` function `ysym()`.
 
 ```{r}
-(A <- ysym(A))
+A <- ysym(A)
 ```
 
 ## Example 1
@@ -64,25 +64,34 @@ expr1 <- paste0("Determinant(", A, ")")
 The following returns a **`yac_symbol`** output.
 
 ```{r}
-(yac_symbol <- Exe(expr1, R = FALSE, format = "ysym"))
+yac_symbol <- Exe(expr1, R = FALSE, format = "ysym")
 str(yac_symbol)
 ```
 
 The following returns a **string** output.
 
 ```{r}
-(string <- Exe(expr1, R = FALSE, format = "str"))
+string <- Exe(expr1, R = FALSE, format = "str")
 str(string)
 ```
 
-The following returns a **`laTeX` mathematics** output.
+The following returns a **`LaTeX` mathematics** output.
 
 ```{r}
-(latex <- Exe(expr1, R = FALSE, format = "tex"))
+latex <- Exe(expr1, R = FALSE, format = "tex")
 str(latex)
 ```
 
 LaTeX mathematics can be displayed using the following.
+
+Inline using inline operator `r` enclosed by `$`.
+$`r latex`$
+
+Centered equation using the inline operator `r` enclosed by `$$`.
+$$`r latex`$$
+
+As an `R` code chuck.
+Remember to set `results = "asis"`.
 
 ```{r, results = "asis"}
 cat(
@@ -112,25 +121,23 @@ expr2 <- paste0("Transpose(", A, ")")
 The following returns a **`yac_symbol`** output.
 
 ```{r}
-(yac_symbol <- Exe(expr2, R = FALSE, format = "ysym"))
+yac_symbol <- Exe(expr2, R = FALSE, format = "ysym")
 str(yac_symbol)
 ```
 
 The following returns a **string** output.
 
 ```{r}
-(string <- Exe(expr2, R = FALSE, format = "str"))
+string <- Exe(expr2, R = FALSE, format = "str")
 str(string)
 ```
 
-The following returns a **`laTeX` mathematics** output.
+The following returns a **`LaTeX` mathematics** output.
 
 ```{r}
-(latex <- Exe(expr2, R = FALSE, format = "tex"))
+latex <- Exe(expr2, R = FALSE, format = "tex")
 str(latex)
 ```
-
-LaTeX mathematics can be displayed using the following.
 
 ```{r, results = "asis"}
 cat(

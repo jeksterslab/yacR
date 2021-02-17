@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • yacR</title>
+<title>Coerce to LaTeX Math — as.tex • yacR</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,11 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Coerce to LaTeX Math — as.tex" />
+<meta property="og:description" content="The function uses as.yac_symbol()
+to convert x to an object of class yac_symbol
+and then converts it to LaTeX math
+using Ryacas::tex()." />
 
 
 
@@ -58,7 +62,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -135,66 +139,45 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Coerce to LaTeX Math</h1>
+    <small class="dont-index">Source: <a href='https://github.com/jeksterslab/yacR/blob/master/R/as.tex.R'><code>R/as.tex.R</code></a></small>
+    <div class="hidden name"><code>as.tex.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>The function uses <code><a href='as.yac_symbol.html'>as.yac_symbol()</a></code>
+to convert <code>x</code> to an object of class <code>yac_symbol</code>
+and then converts it to LaTeX math
+using <code><a href='https://rdrr.io/pkg/Ryacas/man/tex.html'>Ryacas::tex()</a></code>.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>as.tex</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="Exe.html">Exe()</a></code> </p>
-        </td>
-        <td><p>Execute Yacas Expression using Ryacas</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as.tex.html">as.tex()</a></code> </p>
-        </td>
-        <td><p>Coerce to LaTeX Math</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as.yac_symbol.html">as.yac_symbol()</a></code> <code><a href="as.yac_symbol.html">as.ysym()</a></code> </p>
-        </td>
-        <td><p>Coerce to an Object of Class <code>yac_symbol</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="is.yac_symbol.html">is.yac_symbol()</a></code> <code><a href="is.yac_symbol.html">is.ysym()</a></code> </p>
-        </td>
-        <td><p>Test for Object of Class <code>yac_symbol</code></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="yacR.html">yacR</a></code> </p>
-        </td>
-        <td><p>yacR: Utilities for Using Ryacas</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>Object.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Ivan Jacob Agaloos Pesigan</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='op'>(</span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, ncol <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      [,1] [,2]
+#&gt; [1,]    1    6
+#&gt; [2,]    2    7
+#&gt; [3,]    3    8
+#&gt; [4,]    4    9
+#&gt; [5,]    5   10</div><div class='input'><span class='fu'>as.tex</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "\\left( \\begin{array}{cc} 1 &amp; 6 \\\\ 2 &amp; 7 \\\\ 3 &amp; 8 \\\\ 4 &amp; 9 \\\\ 5 &amp; 10 \\end{array} \\right)"</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>

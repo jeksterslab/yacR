@@ -15,7 +15,7 @@ as.ysym(x)
 \description{
 The function checks if \code{x} is of class \code{yac_symbol}.
 If the test is \code{TRUE}, it returns \code{x}.
-otherwise, it applies \code{Ryacas::ysym} to \code{x}
+otherwise, it applies \code{\link[Ryacas:ysym]{Ryacas::ysym()}} to \code{x}
 and returns the result.
 }
 \examples{
